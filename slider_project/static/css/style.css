@@ -1,0 +1,27 @@
+* {
+  font-family: "Montserrat", sans-serif;
+}
+
+header .btn {
+    background-color: #FF342B;
+}
+
+.slider-container {
+    background-color: #3C3C3C;
+    color: white;
+}
+
+.slider img {
+    margin:0 auto;
+    border-radius: 25px;
+}
+
+.slider-nav .slick-current img {
+    border: 1px solid white;
+}
+
+.slider .slick-arrow.slick-next {
+  right: 0;
+  background: url("https://img.icons8.com/ios/50/000000/long-arrow-right.png") 0 0 / 100% no-repeat;
+}
+

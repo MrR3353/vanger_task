@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Home {% endblock %}
+
+{% block content %}
+<section class="py-5 px-3 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-7 col-md-8 mx-auto">
+        <h1 class="display-4 fw-bold">Космическое агентство</h1>
+        <p>Национальное управление по аэронавтике и исследованию космического пространства — ведомство, относящееся к федеральному правительству США и подчиняющееся непосредственно президенту США.</p>
+      </div>
+    </div>
+
+    <div class="row flex-lg-row align-items-center">
+      <div class="col-lg-6">
+          <div class="row flex-lg-row align-items-center g-5 py-5">
+            <div class="col-6 col-md-6 d-flex flex-column align-items-center">
+                <img src="{% static 'img/fa6-solid_shuttle-space.svg' %}" alt="">
+                <p class="fw-bold">Спейс шаттлы — пилотируемые корабли</p>
+            </div>
+            <div class="col-6 col-md-6 d-flex flex-column align-items-center">
+                <img src="{% static 'img/ion_telescope.svg' %}" alt="">
+                <p class="fw-bold">Лучшее телескопическое оборудование</p>
+            </div>
+          </div>
+          <div class="row flex-lg-row align-items-center g-5 py-5">
+            <div class="col-6 col-md-6 d-flex flex-column align-items-center">
+                <img src="{% static 'img/bi_moon-stars-fill.svg' %}" alt="">
+                <p class="fw-bold">Целимся на Луну и Марс</p>
+            </div>
+            <div class="col-6 col-md-6 d-flex flex-column align-items-center">
+                <img src="{% static 'img/bxs_medal.svg' %}" alt="">
+                <p class="fw-bold">Золотая медаль по научным исследованиям</p>
+            </div>
+          </div>
+      </div>
+      <div class="col-lg-6">
+        <img src="{% static 'img/9c0ee4e1f6bb7bae43de7850168fdce7.jpeg' %}" class="d-block mx-lg-auto img-fluid rounded">
+      </div>
+    </div>
+</section>
+
+<section class="py-5 px-3 text-center slider-container">
+    <div class="container">
+        <h2 class="display-6 fw-bold">Фотографии</h2>
+        {% include "slider.html" %}
+    </div>
+</section>
+{% endblock %}
+

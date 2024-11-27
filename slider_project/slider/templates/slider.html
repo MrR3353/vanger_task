@@ -1,0 +1,49 @@
+{% load static %}
+{% load thumbnail %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'slick/slick.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'slick/slick-theme.css' %}">
+<link href="{% static 'css/style.css' %}" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript"  src="{% static 'slick/slick.min.js' %}"></script>
+
+<div class="row">
+    <div class="slider py-4 slider-for">
+        {% for image in slider_images %}
+            <div>
+                <img src="{% thumbnail image.image 750x420 crop %}" alt="{{ image.title }}">
+            </div>
+        {% endfor %}
+    </div>
+    <div class="slider slider-nav">
+        {% for image in slider_images %}
+            <div>
+                <img src="{% thumbnail image.image 165x165 crop %}" alt="{{ image.title }}">
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+<script>
+     $('.slider-for').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        fade: false,
+        adaptiveHeight: true,
+        asNavFor: '.slider-nav',
+     });
+$('.slider-nav').slick({
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    arrows: true,
+    asNavFor: '.slider-for',
+    centerMode: true,
+    centerPadding: '0px',
+    focusOnSelect: true,
+    prevArrow:"<button type='button' class='slick-prev pull-left'><i class='fa fa-angle-left' aria-hidden='true'></i></button>",
+    nextArrow:"<button type='button' class='slick-next pull-right'><i class='fa fa-angle-right' aria-hidden='true'></i></button>"
+});
+</script>
+
