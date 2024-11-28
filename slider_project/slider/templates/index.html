@@ -47,7 +47,13 @@
 <section class="py-5 px-3 text-center slider-container">
     <div class="container">
         <h2 class="display-6 fw-bold">Фотографии</h2>
-        {% include "slider.html" %}
+        {% if slider_images %}
+                {% include "slider.html" %}
+        {% else %}
+                Пока не добавили /:
+        {% endif %}
+
+
     </div>
 </section>
 {% endblock %}

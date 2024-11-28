@@ -1,15 +1,23 @@
 from django.contrib import admin
 from django.utils.html import format_html
+from easy_thumbnails.files import get_thumbnailer
 
 from .models import SliderImage
+from adminsortable2.admin import SortableAdminMixin
 
 
 @admin.register(SliderImage)
-class SliderImageAdmin(admin.ModelAdmin):
-    list_display = ('title', 'image', 'image_tag')
+class SliderImageAdmin(SortableAdminMixin, admin.ModelAdmin):
+    list_filter = ('title',)
+    list_display = ('title', 'image', 'image_tag', 'order')
 
     def image_tag(self, obj):
-        return format_html('<img src="{}" width="150" height="150"/>'.format(obj.image.url))
+        thumbnail = get_thumbnailer(obj.image).get_thumbnail({
+            'size': (150, 150),
+            'crop': True,
+            'quality': 90
+        })
+        return format_html('<img src="{}"/>'.format(thumbnail.url))
 
     image_tag.short_description = 'Image'
 
