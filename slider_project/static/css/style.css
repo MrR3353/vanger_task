@@ -6,13 +6,20 @@ header .btn {
     background-color: #FF342B;
 }
 
+.photo {
+    width: 100%; /* изображение будет заполнять весь доступный контейнер */
+    height: 100%; /* изображение будет растягиваться по высоте */
+    object-fit: cover; /* изображение будет обрезаться, если оно не помещается */
+}
+
+
 .slider-container {
     background-color: #3C3C3C;
     color: white;
 }
 
 .slider img {
-    margin:0 auto;
+    margin: 0 auto;
     border-radius: 25px;
 }
 
@@ -25,3 +32,24 @@ header .btn {
   background: url("https://img.icons8.com/ios/50/000000/long-arrow-right.png") 0 0 / 100% no-repeat;
 }
 
+/* Стили для адаптивности */
+@media (max-width: 768px) {
+    /* Стили для мобильных устройств */
+    .slider-for img {
+        width: 100%;        /* Изображения должны растягиваться по ширине */
+        height: auto;       /* Высота изображений будет подстраиваться */
+        object-fit: cover;  /* Изображения обрезаются, чтобы заполнять контейнер */
+        border-radius: 15px; /* Закругляем углы */
+        height: 300px;  /* Устанавливаем фиксированную высоту для мобильных устройств */
+        object-fit: cover;
+    }
+
+    .slider-nav img {
+        width: 90%;        /* Миниатюры заполняют доступную ширину */
+        height: auto;       /* Пропорции сохраняются */
+        object-fit: cover;  /* Также обрезаем миниатюры */
+        border-radius: 10px; /* Закругленные миниатюры */
+        height: 70px;   /* Миниатюры на мобильных устройствах */
+        object-fit: cover;
+    }
+}
